@@ -1,0 +1,20 @@
+{
+  "name": "debby-mocha",
+  "version": "1.0.0",
+  "description": "mocha-test",
+  "type": "module",
+  "scripts": {
+    "test:api": "mocha --timeout 5000 src/api/**/*.test.js",
+    "test:e2e": "mocha --timeout 20000 src/e2e/**/*.test.js"
+  },
+  "author": "Debby",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "chromedriver": "^91.0.0",
+    "mocha": "^8.4.0",
+    "selenium-webdriver": "^4.0.0-beta.3"
+  }
+}
