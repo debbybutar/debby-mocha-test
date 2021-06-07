@@ -13,12 +13,19 @@ import {
 } from './constants.js';
 
 chai.use(chaiAsPromised);
-const driver = new Builder().forBrowser('chrome').build();
+
 const expect = chai.expect;
 
 describe('# Login', () => {
+  let driver;
+
   beforeEach(async () => {
+    driver = new Builder().forBrowser('chrome').build();
     await driver.get('https://www.bukalapak.com/');
+  });
+
+  afterEach(() => {
+    driver.close();
   });
 
   it('should be failed to login when using the invalid username and password', async () => {
