@@ -24,13 +24,9 @@ describe('# Search Product', () => {
     driver.close();
   });
 
-
-  it('should display the search result as expected', async () => {
-    var productName = ""
-    var curProdName = ""
-
-    productName= 'Iphone 12';
-
+  it.only('should display the search result as expected', async () => {
+    let productName = 'Iphone 12';
+    
     await driver
       .findElement(By.xpath(IPT_SEARCH))
       .sendKeys(productName);
@@ -39,13 +35,15 @@ describe('# Search Product', () => {
       .findElement(By.xpath(BTN_SEARCH))
       .click();
 
-    curProdName = await driver
+    let curProdName = await driver
       .findElement(By.xpath(TXT_PRODUCT_NAME))
       .getText();
 
-      productName = productName.toLowerCase();
-      curProdName = curProdName.toLowerCase();
+    console.log(curProdName);
 
-      expect(curProdName).to.contain(productName);
-    });
+    productName = productName.toLowerCase();
+    curProdName = curProdName.toLowerCase();
+
+    expect(curProdName).to.contain(productName);
+  });
 });
