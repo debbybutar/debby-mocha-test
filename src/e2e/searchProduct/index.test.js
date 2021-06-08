@@ -24,9 +24,9 @@ describe('# Search Product', () => {
     driver.close();
   });
 
-  it.only('should display the search result as expected', async () => {
+  it('should display the search result as expected', async () => {
     let productName = 'Iphone 12';
-    
+
     await driver
       .findElement(By.xpath(IPT_SEARCH))
       .sendKeys(productName);
@@ -38,9 +38,7 @@ describe('# Search Product', () => {
     let curProdName = await driver
       .findElement(By.xpath(TXT_PRODUCT_NAME))
       .getText();
-
-    console.log(curProdName);
-
+      
     productName = productName.toLowerCase();
     curProdName = curProdName.toLowerCase();
 
